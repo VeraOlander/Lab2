@@ -1,5 +1,5 @@
 from numbers import Number
-from validations import validate_coordinates
+from Lab2.validate_coordinates import validate_coordinates
 # class Shape to represent the center position of the object
 
 class Shape:
