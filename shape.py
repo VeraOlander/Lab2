@@ -1,9 +1,9 @@
 from numbers import Number
-from Lab2.validate_coordinates import validate_coordinates
+from validate_coordinates import validate_coordinates
 # class Shape to represent the center position of the object
 
 class Shape:
-    def __init__(self, x: float, y: float):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
   
@@ -13,7 +13,7 @@ class Shape:
     
     @x.setter
     def x(self, x):
-        validate_coordinates(x)        
+        validate_coordinates(x)     
         self._x = x
 
 
