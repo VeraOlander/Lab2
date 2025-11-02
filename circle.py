@@ -56,7 +56,14 @@ class Circle(Shape):
 
     def is_unit_circle(self):
         if self.x == 0 and self.y == 0 and self.radius == 1:
-            print("This is a unit circle")
+            return True
         else:
-            print("This is not a unit circle")
+            return False
         
+
+circle8=Circle(1,0,0)
+print(circle8)
+print(circle8.is_unit_circle())
+circle8.translate(4,5)
+print(circle8)
+print(circle8.is_unit_circle())
