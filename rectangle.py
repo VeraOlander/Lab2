@@ -3,19 +3,19 @@ from validate_coordinates import validate_coordinates
 from validate_parameters import validate_parameters
 
 class Rectangle(Shape):
-    def __init__(self, length, width, x=0, y=0):
+    def __init__(self, height, width, x=0, y=0):
         super().__init__(x, y)
-        self.length=length
+        self.height=height
         self.width=width
 
     @property
-    def length(self):
-        return self._length
+    def height(self):
+        return self._height
     
-    @length.setter
-    def length(self, length):
-        validate_parameters(length)        
-        self._length = length
+    @height.setter
+    def height(self, height):
+        validate_parameters(height)        
+        self._height = height
 
     @property
     def width(self):
@@ -28,21 +28,21 @@ class Rectangle(Shape):
 
     @property
     def area(self):
-        return (self._length * self._width)
+        return (self._height * self._width)
     
     @property
     def perimeter(self):
-        return 2 * (self._length + self._width)
+        return 2 * (self._height + self._width)
 
     def __repr__(self):
-        return f"Rectangle with a length = {self.length}, width = {self.width} and coordinates: x = {self.x}, y = {self.y}"
+        return f"Rectangle with a length = {self.height}, width = {self.width} and coordinates: x = {self.x}, y = {self.y}"
     
     def __str__(self):
-        return f"This is a rectangle with a length = {self.length}, width = {self.width} and coordinates: x = {self.x}, y = {self.y}"
+        return f"This is a rectangle with a length = {self.height}, width = {self.width} and coordinates: x = {self.x}, y = {self.y}"
     
     def __eq__(self, other):
         if isinstance(other, Rectangle):
-            return {self.length, other.length} == {self.width, other.width}
+            return {self.height, other.height} == {self.width, other.width}
         return False
                
     def __lt__(self, other):
@@ -64,7 +64,7 @@ class Rectangle(Shape):
         self.y +=move_y
 
     def is_square(self):
-        if self.length == self.width:
+        if self.height == self.width:
             return True
         else:
             return False

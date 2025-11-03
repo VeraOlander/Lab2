@@ -2,6 +2,8 @@ from shape import Shape
 from validate_coordinates import validate_coordinates
 from validate_parameters import validate_parameters
 import math
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
 class Circle(Shape):
     def __init__(self, radius, x=0, y=0):
@@ -59,6 +61,13 @@ class Circle(Shape):
             return True
         else:
             return False
+        
+    def draw_circle(self,ax):
+        circle_patch = patches.Circle((self.x, self.y), self.radius)
+        ax.set_aspect('equal')
+        ax.add_patch(circle_patch)
+        return ax
+
         
 
 circle8=Circle(1,0,0)
