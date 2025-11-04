@@ -28,10 +28,10 @@ class Circle(Shape):
         return 2 * math.pi * self._radius
 
     def __repr__(self):
-        return f"Circle with a radius = {self.radius} and coordinates: x = {self.x}, y = {self.y}"
+        return f"Circle with a radius = {self.radius} and center coordinates: x = {self.x}, y = {self.y}"
     
     def __str__(self):
-        return f"This is a circle with a radius = {self.radius} and coordinates: x = {self.x}, y = {self.y}"
+        return f"This is a circle with a radius = {self.radius} and center coordinates: x = {self.x}, y = {self.y}"
     
     def __eq__(self, other):
         if isinstance(other, Circle):
@@ -63,16 +63,10 @@ class Circle(Shape):
             return False
         
     def draw_circle(self,ax):
-        circle_patch = patches.Circle((self.x, self.y), self.radius)
+        circle_patch = patches.Circle((self.x, self.y), self.radius, edgecolor='blue', facecolor='none', linewidth=2)
         ax.set_aspect('equal')
         ax.add_patch(circle_patch)
         return ax
 
         
 
-circle8=Circle(1,0,0)
-print(circle8)
-print(circle8.is_unit_circle())
-circle8.translate(4,5)
-print(circle8)
-print(circle8.is_unit_circle())

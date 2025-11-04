@@ -1,22 +1,15 @@
 from shape import Shape
 from validate_coordinates import validate_coordinates
 from validate_parameters import validate_parameters
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
 class Rectangle(Shape):
-    def __init__(self, height, width, x=0, y=0):
+    def __init__(self, width, height, x=0, y=0):
         super().__init__(x, y)
-        self.height=height
         self.width=width
-
-    @property
-    def height(self):
-        return self._height
-    
-    @height.setter
-    def height(self, height):
-        validate_parameters(height)        
-        self._height = height
-
+        self.height=height
+        
     @property
     def width(self):
         return self._width
@@ -25,7 +18,16 @@ class Rectangle(Shape):
     def width(self, width):
         validate_parameters(width)        
         self._width = width
-
+    
+    @property
+    def height(self):
+        return self._height
+    
+    @height.setter
+    def height(self, height):
+        validate_parameters(height)        
+        self._height = height
+    
     @property
     def area(self):
         return (self._height * self._width)
@@ -35,10 +37,10 @@ class Rectangle(Shape):
         return 2 * (self._height + self._width)
 
     def __repr__(self):
-        return f"Rectangle with a length = {self.height}, width = {self.width} and coordinates: x = {self.x}, y = {self.y}"
+        return f"Rectangle with a height = {self.height}, width = {self.width} and lower left corner coordinates: x = {self.x}, y = {self.y}"
     
     def __str__(self):
-        return f"This is a rectangle with a length = {self.height}, width = {self.width} and coordinates: x = {self.x}, y = {self.y}"
+        return f"This is a rectangle with a height = {self.height}, width = {self.width} and lower left corner coordinates: x = {self.x}, y = {self.y}"
     
     def __eq__(self, other):
         if isinstance(other, Rectangle):
@@ -68,4 +70,10 @@ class Rectangle(Shape):
             return True
         else:
             return False
+        
+    def draw_rectangle(self,ax):
+        rectangle_patch = patches.Rectangle((self.x, self.y), self.width, self.height, edgecolor='red', facecolor='none', linewidth=2)
+        ax.set_aspect('equal')
+        ax.add_patch(rectangle_patch)
+        return ax
         
