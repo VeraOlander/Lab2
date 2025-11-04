@@ -2,7 +2,6 @@ from shape import Shape
 from validate_coordinates import validate_coordinates
 from validate_parameters import validate_parameters
 import math
-import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
 class Circle(Shape):
