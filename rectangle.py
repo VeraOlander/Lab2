@@ -1,10 +1,11 @@
 from shape import Shape
-from validate_coordinates import validate_coordinates
-from validate_parameters import validate_parameters
+from numbers import Number
+from validations import validate_coordinates
+from validations import validate_parameters
 import matplotlib.patches as patches
 
 class Rectangle(Shape):
-    def __init__(self, width, height, x=0, y=0):
+    def __init__(self, width: Number, height: Number, x=0, y=0):
         super().__init__(x, y)
         self.width=width
         self.height=height
@@ -36,10 +37,10 @@ class Rectangle(Shape):
         return 2 * (self._height + self._width)
 
     def __repr__(self):
-        return f"Rectangle with a height = {self.height}, width = {self.width} and lower left corner coordinates: x = {self.x}, y = {self.y}"
+        return f"Rectangle (height = {self.height}, width = {self.width}, x = {self.x}, y = {self.y})"
     
     def __str__(self):
-        return f"This is a rectangle with a height = {self.height}, width = {self.width} and lower left corner coordinates: x = {self.x}, y = {self.y}"
+        return f"This is a rectangle with a height = {self.height}, width = {self.width} and center coordinates: x = {self.x}, y = {self.y}"
     
     def __eq__(self, other):
         if isinstance(other, Rectangle):
@@ -47,16 +48,24 @@ class Rectangle(Shape):
         return False
                
     def __lt__(self, other):
-        return self.area < other.area
+        if isinstance(other, Rectangle):
+            return self.area < other.area
+        return False
     
     def __le__(self, other):
-        return self.area <= other.area
+        if isinstance(other, Rectangle):
+            return self.area <= other.area
+        return False
     
     def __gt__(self, other):
-        return self.area > other.area
+        if isinstance(other, Rectangle):
+            return self.area > other.area
+        return False
     
     def __ge__(self, other):
-        return self.area >= other.area
+        if isinstance(other, Rectangle):
+            return self.area >= other.area
+        return False
     
     def translate(self, move_x, move_y):
         validate_coordinates(move_x)
@@ -71,7 +80,7 @@ class Rectangle(Shape):
             return False
         
     def draw_rectangle(self,ax):
-        rectangle_patch = patches.Rectangle((self.x, self.y), self.width, self.height, edgecolor='red', facecolor='none', linewidth=2)
+        rectangle_patch = patches.Rectangle((self.x-self.width/2, self.y-self.height/2), self.width, self.height, edgecolor='red', facecolor='none', linewidth=2)
         ax.set_aspect('equal')
         ax.add_patch(rectangle_patch)
         return ax

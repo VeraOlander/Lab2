@@ -1,9 +1,9 @@
 from numbers import Number
-from validate_coordinates import validate_coordinates
+from validations import validate_coordinates
 # class Shape to represent the center position of the object
 
 class Shape:
-    def __init__(self, x, y):
+    def __init__(self, x: Number, y: Number):
         self.x = x
         self.y = y
   
@@ -27,5 +27,5 @@ class Shape:
         self._y = y
 
     def __repr__(self):
-        return f"Coordinates: x = {self.x}, y = {self.y}"
+        return f"Coordinates (x = {self.x}, y = {self.y})"
 

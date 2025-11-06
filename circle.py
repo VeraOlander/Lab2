@@ -1,11 +1,12 @@
 from shape import Shape
-from validate_coordinates import validate_coordinates
-from validate_parameters import validate_parameters
+from numbers import Number
+from validations import validate_coordinates
+from validations import validate_parameters
 import math
 import matplotlib.patches as patches
 
 class Circle(Shape):
-    def __init__(self, radius, x=0, y=0):
+    def __init__(self, radius: Number, x=0, y=0):
         super().__init__(x, y)
         self.radius=radius
 
@@ -27,7 +28,7 @@ class Circle(Shape):
         return 2 * math.pi * self._radius
 
     def __repr__(self):
-        return f"Circle with a radius = {self.radius} and center coordinates: x = {self.x}, y = {self.y}"
+        return f"Circle (radius = {self.radius}, x = {self.x}, y = {self.y})"
     
     def __str__(self):
         return f"This is a circle with a radius = {self.radius} and center coordinates: x = {self.x}, y = {self.y}"
@@ -38,16 +39,24 @@ class Circle(Shape):
         return False
                
     def __lt__(self, other):
-        return self.radius < other.radius
+        if isinstance(other, Circle):
+            return self.radius < other.radius
+        return False
     
     def __le__(self, other):
-        return self.radius <= other.radius
+        if isinstance(other, Circle):
+            return self.radius <= other.radius
+        return False
     
     def __gt__(self, other):
-        return self.radius > other.radius
+        if isinstance(other, Circle):
+            return self.radius > other.radius
+        return False
     
     def __ge__(self, other):
-        return self.radius >= other.radius
+        if isinstance(other, Circle):
+            return self.radius >= other.radius
+        return False
     
     def translate(self, move_x, move_y):
         validate_coordinates(move_x)
