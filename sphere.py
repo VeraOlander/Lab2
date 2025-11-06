@@ -4,8 +4,9 @@ from validations import validate_parameters
 import math
 
 
+
 class Sphere(Shape):
-    def __init__(self, radius: Number, x=0, y=0):
+    def __init__(self, radius: float | int, x: float | int = 0, y: float | int = 0):
         super().__init__(x, y)
         self.radius=radius
 

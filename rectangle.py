@@ -79,9 +79,11 @@ class Rectangle(Shape):
         else:
             return False
         
-    def draw_rectangle(self,ax):
+    def draw_rectangle(self,ax,mark_center=True):
         rectangle_patch = patches.Rectangle((self.x-self.width/2, self.y-self.height/2), self.width, self.height, edgecolor='red', facecolor='none', linewidth=2)
+        ax.plot(self.x, self.y, marker='o', color='red', markersize=2)
         ax.set_aspect('equal')
         ax.add_patch(rectangle_patch)
+        ax.annotate
         return ax
         

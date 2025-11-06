@@ -70,10 +70,11 @@ class Circle(Shape):
         else:
             return False
         
-    def draw_circle(self,ax):
+    def draw_circle(self, ax):
         circle_patch = patches.Circle((self.x, self.y), self.radius, edgecolor='blue', facecolor='none', linewidth=2)
-        ax.set_aspect('equal')
         ax.add_patch(circle_patch)
+        ax.plot(self.x, self.y, marker='o', color='blue', markersize=2)
+        ax.set_aspect('equal')
         return ax
 
         
