@@ -5,7 +5,7 @@ from validations import validate_parameters
 import matplotlib.patches as patches
 
 class Rectangle(Shape):
-    def __init__(self, width: Number, height: Number, x=0, y=0):
+    def __init__(self, width: Number, height: Number, x: Number = 0, y: Number = 0):
         super().__init__(x, y)
         self.width=width
         self.height=height
@@ -79,11 +79,10 @@ class Rectangle(Shape):
         else:
             return False
         
-    def draw_rectangle(self,ax,mark_center=True):
+    def draw_rectangle(self,ax):
         rectangle_patch = patches.Rectangle((self.x-self.width/2, self.y-self.height/2), self.width, self.height, edgecolor='red', facecolor='none', linewidth=2)
         ax.plot(self.x, self.y, marker='o', color='red', markersize=2)
         ax.set_aspect('equal')
         ax.add_patch(rectangle_patch)
-        ax.annotate
         return ax
         
