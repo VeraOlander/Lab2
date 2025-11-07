@@ -5,6 +5,33 @@ from validations import validate_parameters
 import matplotlib.patches as patches
 
 class Rectangle(Shape):
+    """
+    A class to create a Rectangle object
+     Attributes:     
+     - width (Number): larger than 0
+     - height (Number): larger than 0
+     - x: x-coordinate, inherited from parent class Shape, default value 0
+     - y: y-coordinate, inherited from parent class Shape, default value 0
+     - area: calculated from width and height
+     - perimeter: calculated from width and height
+     ...
+    Methods:
+    - __eq__: == operator overload to compare rectangle instances by their width/height
+    - __lt__: < operator overload to compare rectangle instances by their areas
+    - __le__: <= operator overload to compare rectangle instances by their areas
+    - __gt__: > operator overload to compare rectangle instances by their areas
+    - __ge__: >= operator overload to compare rectangle instances by their areas
+    - translate(): moves the object by changing x and y coordinates
+    - is_square(): checks whether a Rectangle instance is square, namely that width and height are equal
+    - draw_rectangle(): creates a matplotlib rectangle patch out of a Rectangle class instance with the given parameters. As matplotlib rectangle patches are plotted starting
+    from Lower left point, coordinates are adjusted by subtracting half width from x and half heiht from y to keep the center of Rectangle class instance
+
+    Example usage:
+    >>> rectangle1=Rectangle(2,3,0,0)
+    >>> rectangle1.area
+    >>> rectangle1.is_square()
+    >>> rectangle1.translate(4,5)
+    """
     def __init__(self, width: Number, height: Number, x: Number = 0, y: Number = 0):
         super().__init__(x, y)
         self.width=width

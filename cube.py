@@ -5,6 +5,29 @@ from validations import validate_parameters
 
 
 class Cube(Shape):
+    """
+    A class to create a Cube object
+     Attributes:     
+     - side (Number): the side length, larger than 0
+     - x: x-coordinate, inherited from parent class Shape, default value 0
+     - y: y-coordinate, inherited from parent class Shape, default value 0
+     - surface_area: calculated from side length
+     - volume: calculated from side length
+     ...
+    Methods:
+    - __eq__: == operator overload to compare Cube instances by their side lengths
+    - __lt__: < operator overload to compare Cube instances by their side lengths
+    - __le__: <= operator overload to compare Cube instances by their side lengths
+    - __gt__: > operator overload to compare Cube instances by their side lengths
+    - __ge__: >= operator overload to compare Cube instances by their side lengths
+    - translate(): moves the object by changing x and y coordinates
+
+    Example usage:
+    >>> cube1=Cube(1,0,0)
+    >>> cube1.surface_area
+    >>> cube1.translate(4,5)
+    """
+        
     def __init__(self, side: Number, x: Number = 0, y: Number = 0):
         super().__init__(x, y)
         self.side=side

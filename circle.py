@@ -6,7 +6,33 @@ import math
 import matplotlib.patches as patches
 
 class Circle(Shape):
-    def __init__(self, radius: Number, x=0, y=0):
+    """
+    A class to create a Circle object
+     Attributes:     
+     - radius (Number): the distance from the center to the edge of a circle, larger than 0
+     - x: x-coordinate, inherited from parent class Shape, default value 0
+     - y: y-coordinate, inherited from parent class Shape, default value 0
+     - area: calculated from radius
+     - circumference: calculated from radius
+     ...
+    Methods:
+    - __eq__: == operator overload to compare circle instances by their radiuses
+    - __lt__: < operator overload to compare circle instances by their radiuses
+    - __le__: <= operator overload to compare circle instances by their radiuses
+    - __gt__: > operator overload to compare circle instances by their radiuses
+    - __ge__: >= operator overload to compare circle instances by their radiuses
+    - translate(): moves the object by changing x and y coordinates
+    - is_unit_circle(): checks whether a Circle instance is a unit circle
+    - draw_circle(): creates a matplotlib circle patch out of a Circle class instance with the given parameters
+
+    Example usage:
+    >>> circle1=Circle(1,0,0)
+    >>> circle1.area
+    >>> circle1.is_unit_circle()
+    >>> circle1.translate(4,5)
+    """
+        
+    def __init__(self, radius: Number, x = 0, y = 0):
         super().__init__(x, y)
         self.radius=radius
 
