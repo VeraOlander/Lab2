@@ -10,6 +10,3 @@ class Shape2dPlotter:
         self.ax.set(xlim=(-15,15), ylim=(-15,15), xlabel="x", ylabel="y", title = 'Shapes')
         self.ax.grid(linestyle="--", linewidth=0.5, color='.25', zorder=-10)
         self.ax.spines[["top", "right"]].set_visible(False)
-       
-    #def add_plot(self):
-    #    plt.show()
